@@ -8,18 +8,24 @@
     <link rel="stylesheet" href="./assets/css/style.css" />
 </head>
 <body>
-    <div class = "container">
-        <div id="question-container" class="hide">
+    <div class="scores"><a href="score.html">View high scores</a></div>
+    <div class="timer">Time: <span id="time">0</span> </div>
+    <div class="title" id="start">
+        <h1>Code Quiz Challenge</h1>
+        <P>Try to answer the followging code-related question with in the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!</P>
+        <button id="start-btn">Start</button>
+    </div>
+    <div class ="container">
+        <div id="question-container" class="">
             <div id="question">Question</div>
             <div id="answer-buttons" class="btn-grid">
-                <button class="btn">Answer1</button>
-                <button class="btn">Answer2</button>
-                <button class="btn">Answer3</button>
-                <button class="btn">Answer4</button>
+               <ol>
+                   <li>answer1</li>
+                   <li>answer1</li>
+                   <li>answer1</li>
+                   <li>answer1</li>
+               </ol>
             </div>
-        </div>
-        <div class="contols">
-            <button id="start-btn" class="start-btn btn">Start</button>
         </div>
     </div>
     <script src="./assets/js/script.js"></script>
