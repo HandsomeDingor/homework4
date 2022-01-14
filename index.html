@@ -13,27 +13,21 @@
     <header>
         <div id="scores">
             <a id="score" href="highscore.html">View High Scores</a>
-            <h2 id="timer" class="">Time: 0</h2>
+            <h2 id="time" class="">Time: 0</h2>
         </div>
     </header>
-    <div class="title" id="start">
-        <h1>Code Quiz Challenge</h1>
-        <P>Try to answer the followging code-related question with in the time limit. Keep in mind that incorrect
-            answers will penalize your score/time by ten seconds!</P>
-        <button id="start-btn">Start</button>
-    </div>
-    <div class="quiz">
+    <div id="quiz">
+        <div class="title hide " id="startQuiz">
+            <h1>Code Quiz Challenge</h1>
+            <P>Try to answer the followging code-related question with in the time limit. Keep in mind that incorrect
+                answers will penalize your score/time by ten seconds!</P>
+            <button id="start-btn">Start</button>
+        </div>
+
 
         <div id="question-container" class="hide">
-            <div id="question">Question</div>
-            <div id="answer-buttons" class="btn-grid">
-                <ol>
-                    <li>answer1</li>
-                    <li>answer1</li>
-                    <li>answer1</li>
-                    <li>answer1</li>
-                </ol>
-            </div>
+            <h2 id="question-title"></h2>
+            <div id="choices" class="choices"></div>
         </div>
 
 
@@ -45,6 +39,8 @@
                 <button id="submit">Submit</button>
             </p>
         </div>
+        <div id="answer" class="feedback hide ">answers</div>
+
     </div>
 
 
