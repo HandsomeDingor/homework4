@@ -21,14 +21,8 @@ body{
     display: none;
 }
 
-#time{
 
-    
-}
 
-#view-high-scores{
- 
-}
 
 #startQuiz{
     padding-top: 60px;
@@ -80,16 +74,27 @@ button {
     margin: 5px;
     cursor: pointer;
     font-size: 100%;
-    background-color: pink;
+    background-color: darkslateblue;
     border-radius: 5px;
-    padding: 2px 10px;
+    padding: 15px 30px;
     color: white;
     border: 0;
     transition: background-color 0.1s;
 }
-  
+
+#view-high-scores { 
+    cursor: pointer;
+    color: pink;
+
+}
+
+#view-high-scores:hover {
+    cursor: pointer;
+    color: black;
+}
+
 button:hover {
-    background-color: silver;
+    background-color: orange;
 }
 
 

@@ -87,7 +87,7 @@ var score = 0;
 var HighScores = [];
 
 var setTime = function () {
-    timeleft = 5;
+    timeleft = 100;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = "Time: " + timeleft--;
