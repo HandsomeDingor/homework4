@@ -107,9 +107,9 @@ var setTime = function () {
             quizEnd();
         }
 
-        // else if (){
-        //     clearInterval(timercheck);
-        // }
+        else if (containerHighScoresEl.classList.contains("none")){
+            clearInterval(timercheck);
+        }
 
         else {
             getQuestion();
@@ -302,7 +302,7 @@ var displayHighScores = function () {
     currentQuestion=0;
     currentQuestionIndex = 0;
 
-    return setTime;
+    
 
    
 
