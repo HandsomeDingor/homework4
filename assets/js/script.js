@@ -87,7 +87,7 @@ var score = 0;
 var HighScores = [];
 
 var setTime = function () {
-    timeleft = 100;
+    timeleft = 5;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = "Time: " + timeleft--;
@@ -181,7 +181,7 @@ function questionClick() {
     feedbackEl.setAttribute("class", "feedback");
     setTimeout(function () {
         feedbackEl.setAttribute("class", "feedback hide");
-    }, 1000);
+    }, 1500);
 
     // next question
     currentQuestionIndex++;
@@ -199,6 +199,7 @@ function questionClick() {
 
 }
 
+var finalScoreEl = document.getElementById("final-score");
 
 function quizEnd() {
 
@@ -206,8 +207,11 @@ function quizEnd() {
     doneEl.removeAttribute("class");
 
     // show final score
-    var finalScoreEl = document.getElementById("final-score");
-    finalScoreEl.textContent = timeleft;
+    
+    if (timeleft < 0){
+        finalScoreEl.textContent = 0;
+    }else (finalScoreEl.textContent = timeleft);
+    
 
     // hide questions section
     questioncontainerEl.setAttribute("class","hide")
@@ -231,10 +235,16 @@ var createHighScore = function (event) {
 
     formInitials.reset();
 
+    if (timeleft < 0){
+        timeleft = 0;
+    }
+
     var HighScore = {
         initials: initials,
         score: timeleft
+        
     }
+    
 
     //push and sort scores
     HighScores.push(HighScore);
