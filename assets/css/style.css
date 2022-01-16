@@ -10,37 +10,39 @@ body{
     
 }
 
+#scores{
+    display: flex;
+    justify-content: space-between;
+    margin: auto;
+    width: 85%;
+}
+
 .hide{
     display: none;
 }
 
 #time{
-    position: relative;
-    top: 30px;
-    right: 30px;
-    float: right;
+
     
 }
 
-#score{
-    position: relative;
-    top: 50px;
-    left: 30px;
+#view-high-scores{
+ 
 }
 
-.title{
-    padding-top: 150px;
+#startQuiz{
+    padding-top: 60px;
     position: relative;
-    display: flex;
+   
     flex-direction: column;
     align-items: center;
 }
 
-.title h1{
+#startQuiz h1{
     font-size: 40px;
 }
 
-.title p{
+#startQuiz p{
     font-size: 30px;
     width: 70%;
 }

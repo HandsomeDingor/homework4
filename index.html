@@ -12,16 +12,16 @@
 <body>
     <header>
         <div id="scores">
-            <a id="score" href="highscore.html">View High Scores</a>
+            <h2 id="view-high-scores">View High Scores</h2>
             <h2 id="time" class="">Time: 0</h2>
         </div>
     </header>
-    <div id="quiz">
-        <div class="title hide " id="startQuiz">
+    <div id= "quiz">
+        <div id="startQuiz" class="">
             <h1>Code Quiz Challenge</h1>
             <P>Try to answer the followging code-related question with in the time limit. Keep in mind that incorrect
                 answers will penalize your score/time by ten seconds!</P>
-            <button id="start-btn">Start</button>
+            <button id="start-btn" class="">Start</button>
         </div>
 
 
@@ -34,12 +34,26 @@
         <div id="done" class="hide">
             <h2>All done!</h2>
             <p>Your final score is <span id="final-score"></span>.</p>
-            <p>
-                Enter initials: <input type="text" id="initials" max="3" />
-                <button id="submit">Submit</button>
-            </p>
+            <form id="initials-form" class="initials">
+                <p>
+                    Enter initials: <input type="text" id="initials" max="3" />
+                    <button id="submit">Submit</button>
+                </p>
+            </form>
         </div>
         <div id="answer" class="feedback hide ">answers</div>
+
+        <div id="high-score-container" class="hide">
+            <div class="high-scores container">
+                <h1 class="high-score">High Scores</h1>
+                <ol id="high-score-list" class="score-list"></ol>
+                <div>
+                    <button class="btn" id="go-back">Go back</button>
+                    <button class="btn" id="clear-high-scores">Clear high scores</button>
+                </div>
+            </div>
+        </div>
+
 
     </div>
 
