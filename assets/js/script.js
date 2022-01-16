@@ -1,4 +1,7 @@
 
+
+
+// Question Array
 var questions = [
     {
         title: "Which one is a looping structure in JavaScript?",
@@ -60,15 +63,14 @@ var questions = [
 
 
 
-
+// set value
 var startButtonEl = document.getElementById("start-btn")
 var startQuizEl = document.getElementById("startQuiz");
-
 var questioncontainerEl = document.getElementById("question-container")
 var timerEl = document.getElementById("time");
 var choicesEl = document.getElementById("choices");
 var submitBtn = document.getElementById("submit");
-var feedbackEl = document.getElementById("answer")
+var responseEl = document.getElementById("answer")
 var formInitials = document.getElementById("initials-form")
 var containerHighScoresEl = document.getElementById("high-score-container")
 var ViewHighScoreEl = document.getElementById("view-high-scores")
@@ -76,29 +78,27 @@ var listHighScoreEl = document.getElementById("high-score-list")
 var btnGoBackEl = document.getElementById("go-back")
 var btnClearScoresEl = document.getElementById("clear-high-scores")
 var doneEl = document.getElementById("done");
-
-
+var finalScoreEl = document.getElementById("final-score");
 var currentQuestionIndex = 0;
-
 var score = 0;
-
-
-//High Score Array
 var HighScores = [];
 
+
+//set time interval 1second each time
 var setTime = function () {
     timeleft = 100;
 
     var timercheck = setInterval(function () {
         timerEl.innerText = "Time: " + timeleft--;
 
+        // if last question attend time stop and quiz end
         if (currentQuestionIndex === questions.length) {
             timerEl.innerText = "Time: " + timeleft;
             clearInterval(timercheck);
             quizEnd();
         }
 
-
+        // if time go 0 quiz end and time stop
         else if (timeleft < 0) {
 
             timerEl.innerText = "Time: 0";
@@ -107,6 +107,7 @@ var setTime = function () {
             quizEnd();
         }
 
+        // if viewhighscore time stop
         else if (containerHighScoresEl.classList.contains("none")){
             clearInterval(timercheck);
         }
@@ -119,9 +120,7 @@ var setTime = function () {
 
 
 
-
-
-
+// startQuiz function and hide the #quiz
 function startQuiz() {
     startButtonEl.setAttribute("class", "hide")
     startQuizEl.setAttribute("class", "hide")
@@ -164,42 +163,30 @@ function getQuestion() {
 
 
 function questionClick() {
-    // check if user guessed wrong
+    // check if user click wrong
     if (this.value !== questions[currentQuestionIndex].answer) {
-        // penalize time
+        // penalize time -10s
         timeleft -= 10;
-        feedbackEl.textContent = "Wrong!";
-        feedbackEl.style.color = "red";
-        feedbackEl.style.fontSize = "200%";
+        responseEl.textContent = "Wrong!";
+        responseEl.style.fontSize = "200%";
     } else {
-        feedbackEl.textContent = "Correct!";
-        feedbackEl.style.color = "green";
-        feedbackEl.style.fontSize = "200%";
+        responseEl.textContent = "Correct!";
+        responseEl.style.fontSize = "200%";
     }
 
-    // flash right/wrong feedback
-    feedbackEl.setAttribute("class", "feedback");
+    // correct or wrong 1.5sec show on
+    responseEl.setAttribute("class", "");
     setTimeout(function () {
-        feedbackEl.setAttribute("class", "feedback hide");
+        responseEl.setAttribute("class", " hide");
     }, 1500);
 
     // next question
     currentQuestionIndex++;
-
-    if (currentQuestionIndex === questions.length) {
-        timerEl.innerText = "Time: " + timeleft;
-
-        quizEnd();
-    }
-
-    else {
-        getQuestion();
-    }
     
 
 }
 
-var finalScoreEl = document.getElementById("final-score");
+
 
 function quizEnd() {
 
@@ -235,10 +222,12 @@ var createHighScore = function (event) {
 
     formInitials.reset();
 
+    //no negative scores
     if (timeleft < 0){
         timeleft = 0;
     }
 
+    // list scores
     var HighScore = {
         initials: initials,
         score: timeleft
@@ -268,13 +257,13 @@ var createHighScore = function (event) {
 }
 
 
-//save high score
+//save high score to local storage
 var saveHighScore = function () {
     localStorage.setItem("HighScores", JSON.stringify(HighScores))
 
 }
 
-//load values/ called on page load
+//load values on page load
 var loadHighScore = function () {
     var LoadedHighScores = localStorage.getItem("HighScores")
     if (!LoadedHighScores) {
@@ -300,26 +289,15 @@ var loadHighScore = function () {
 
 //display high score screen from link or when intiials entered
 var displayHighScores = function () {
-   
-
     containerHighScoresEl.setAttribute("class","none");
-    
     doneEl.setAttribute("class", "hide")
+
     startQuizEl.setAttribute("class","hide")
-
     questioncontainerEl.setAttribute("class","hide")
-
     currentQuestion=0;
     currentQuestionIndex = 0;
-
-    
-
-   
-
-
-
-
 }
+
 //clears high scores
 var clearScores = function () {
     HighScores = [];
@@ -357,8 +335,7 @@ var goback = function () {
 
 
 
-
-
+// add EventListerner on each button
 
 
 startButtonEl.addEventListener('click', startQuiz);
