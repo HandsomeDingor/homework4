@@ -1,6 +1,12 @@
 # homework4
 
-## GitHub LIVE URL : https://handsomedingor.github.io/homework4/
+## GitHub LIVE URL :
+https://handsomedingor.github.io/homework4/
+
+
+## Code Quiz Challenge
+Try to answer the followging code-related question with in the time limit. Keep in mind that incorrect answers will penalize your score/time by ten seconds!
+
 
 
 ## User Story
@@ -26,3 +32,8 @@ THEN the game is over
 WHEN the game is over
 THEN I can save my initials and score
 ```
+
+
+
+## The following image demonstrates the application functionality:
+![quizapp](https://user-images.githubusercontent.com/94802639/149682943-25c45ccc-70a8-454c-a5d7-277ea4b09f55.gif)
